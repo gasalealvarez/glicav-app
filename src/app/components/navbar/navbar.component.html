@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <a class="navbar-brand">{{app_name}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item dropdown" *ngIf="isAdmin == true">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" 
+            aria-haspopup="true" aria-expanded="false">
+              Datos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- <a class="dropdown-item" href={{enlaceUser}}>Carga Datos</a>
+              <a class="dropdown-item" href= {{enlaceAdmin}}>Resultados</a> -->
+              <a class="dropdown-item" data-toggle="modal"   data-target="#modalRaza">Nueva Raza</a>
+            </div>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink={{enlaceUser}}>Carga de Datos
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink={{enlaceAdmin}}>Resultados
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link" routerLink="/user/register">Register
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link" routerLink="/user/login">Login
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a href="#" class="nav-link" (click)="onLogout()">Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <app-modal-raza></app-modal-raza>

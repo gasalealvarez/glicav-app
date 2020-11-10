@@ -1,0 +1,68 @@
+  <div class="modal fade" id="modalBook" tabindex="-1" role="dialog"
+   aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> Nuevo Registro      
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="formBook" #formBook="ngForm" (ngSubmit)="onSaveBook(formBook)">
+            <input type="hidden" name="id" >
+            <input type="hidden" name="userUid" [value]="userUid">
+           
+            <div class="form-group">
+              <div class="form-group col-md-12">
+                <label for="raza">Raza</label>
+                <select name="raza" class="form-control" 
+                   [(ngModel)]="this.dataService.selectedStudy.raza" required >
+                <option *ngFor="let breed of breeds" value={{breed.raza}}>{{breed.raza}}</option>  
+                </select>  
+              </div>
+            </div>
+
+              <div class="form-group col-md-12">
+                <label for="edad">Edad</label>
+                <input type="text" name="edad" class="form-control" placeholder="Edad en años Ex. 10" 
+                [(ngModel)]="this.dataService.selectedStudy.edad" required >
+              </div>
+              
+              <div class="form-group col-md-12">
+                <label for="sexo">Sexo</label>
+                <select name="idsexo" class="form-control"
+                [(ngModel)]="this.dataService.selectedStudy.idsexo">
+                  <option value="1">Macho</option> 
+                  <option value="2">Hembra</option> 
+                </select>  
+              </div>
+            
+
+            <div   class="form-group">
+              <div class="form-group col-md-12">
+              <label for="isach">Clasificacion Isach</label>
+              <select name="isach" class="form-control"
+              [(ngModel)]="this.dataService.selectedStudy.idisach " required >
+                <option value="Clase 1 A" data-toggle="tooltip" data-placement="right" title="Signos de patología cardiaca sin mecanismos de compensación">Clase 1 A </option> 
+                <option value="Clase 1 B" data-toggle="tooltip" data-placement="right" title="Patología cardiaca con signos de compensación en la radiografía o ecocardiografía.">Clase 1 B </option> 
+                <option value="Clase 2" data-toggle="tooltip" data-placement="right" title="Signos clínicos de ICC en reposo o con un ejercicio moderado">Clase 2 </option>  
+                <option value="Clase 3 A" data-toggle="tooltip" data-placement="right" title="Síntomas de baja perfusión periférica (Ambulatorio).">Clase 3 A</option> 
+                <option value="Clase 3 B" data-toggle="tooltip" data-placement="right" title="Síntomas de baja perfusión periférica (Hospitalizacion)">Clase 3 B </option> 
+              </select> 
+              </div> 
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save Study</button>
+            </div>
+            
+            </form>
+        </div> 
+     
+        
+      </div>
+    </div>
+  </div>

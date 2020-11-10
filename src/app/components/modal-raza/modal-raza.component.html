@@ -1,0 +1,27 @@
+<div class="modal" id="modalRaza" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Administrador de Razas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         
+          <form name="formBreed" #formBreed="ngForm" (ngSubmit)="onSaveBreed(formBreed)">
+            <div class="form-group col-md-12">
+              <label for="nuevaRaza">Raza</label>
+              <input type="text" name="raza" class="form-control" placeholder="Ingrese una nueva Raza" 
+              [(ngModel)]="this.dataService.selectedStudy.raza">
+            </div>
+          
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal">Close</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

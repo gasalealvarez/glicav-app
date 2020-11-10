@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/glicav-project-v0",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
